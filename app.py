@@ -1,4 +1,4 @@
-defrom fastapi import FastAPI
+from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import joblib
@@ -32,4 +32,5 @@ def predict_genre(data: MovieInput):
     vector = tfidf.transform([cleaned_plot])
     prediction = svm_model.predict(vector)[0]
     return {"predicted_genre": prediction}
+
 
